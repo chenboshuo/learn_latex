@@ -1,14 +1,19 @@
 \documentclass[UTF8]{article}
-\author{cbs}
-\tittle{高等数学公式}
-\date{} % 不显示时间
+\maketitle % \title、\author、\date，表示标题、作者和日期，只有通过\maketitle命令才生效
+  \author{cbs}
+  \tittle{高等数学公式}
+  \date{} % 不显示时间
 
 \usepackage{ctex} % 处理中文
 \begin{document}
   \maketittle
     内容
   \section{有序号的一级标题}
+    \label{sec:system} % 标题的标签
+  \ref{sec:conclusions}
   \section*{无序号的一级标题}
+  \subsection{有序号的二级标题}
+
 
 
 \end{document}
