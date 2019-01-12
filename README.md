@@ -5,4 +5,6 @@
 ](http://www.mohu.org/info/lshort-cn.pdf)
 - [ChaoZeyi/LaTeX](https://github.com/ChaoZeyi/LaTeX)
 
+- [latex 入门(刘海洋)]()
+
 # 我的笔记
