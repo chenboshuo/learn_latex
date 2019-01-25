@@ -3,9 +3,11 @@
 \titte{杂谈勾股定理}
 \author{张三}
 \date{\today}
-
 \bibliographystyle{plain} % 声明参考文献格式
 
+% 插图功能的相关宏包
+\documentclass{ctexart}
+\usepackage{graphicx}
 % 以上为导言区
 \begin{document}
 
@@ -54,6 +56,23 @@
       $2^{10} = 1024$
 
       $90^\circ$
+  \section{使用图表}
+      \subsection{插图}
+      
+        % figure 环境,就是插图使用的浮动体环境,相当于普通段落,没有缩进
+        \begin{figure}[ht]% 可选参数ht表示可以出现在文字所在处(here)或顶部
+          \centering% 后面内容居中
+          \includegraphics[width=3cm]{pythagorean_theorem.jpg}
+          % \includegraphics有两个参数,方括号中的可选参数设定了宽度
+          % 可选参数有[scale=放缩因子][height=高度][width=宽度]
+          % 第二个参数是文件名,放在源文件目录
+          \caption{欧几里得证法}% 给插图加上编号和标题
+          \labal{fig:Euclid}
+        \end{figure}
+      青朱出入图，是东汉末年数学家刘徽根据“割补术”运用数形关系证明勾股定理的几何证明法，特色鲜明、通俗易懂。
+      刘徽描述此图，“勾自乘为朱方，股自乘为青方，令出入相补，各从其类，因就其余不动也，合成弦方之幂。开方除之，即弦也。”其大意为，一个任意直角三角形，以勾宽作红色正方形即朱方，以股长作青色正方形即青方。将朱方、青方两个正方形对齐底边排列，再以盈补虚，分割线内不动，线外则“各从其类”，以合成弦的正方形即弦方，弦方开方即为弦长。 [3]
+
+      欧几里得证法
   \bibliography{math} % 提示从math数据库获取文献信息,来打印参考文献
 
 
