@@ -1,0 +1,58 @@
+\documentclass[UTF8]{ctexart}
+
+\title{第四章数学公式}
+\date{\today}
+
+% 数学公式的相关宏包
+\usepackage{amsmath}
+
+\DeclareMathOperator\dif{d\!}
+
+\begin{document}
+  \maketitle
+  \section{数学公式概说}
+    普通文字: a+b,1+1
+
+    行内公式: $a+b$ , $1+1$
+
+    直接写:交换律是
+
+    \[ a+b = b+a, \]
+    如
+    \[
+      1+2=2+1=3
+    \]
+
+    自动编号的数学公式
+    \begin{equation}
+      a+b = b+a\label{eq:communtative}
+    \end{equation}
+
+    \subsection{宏amsmath}
+      可以用输入汉字公式
+
+      $\text{被减数} - \text{减数} = \text{差}$
+
+      在普通文本中使用数学公式注意文本与数学公式的转换,比如行内公式标点处不能换行,列举多项公式应该分别放在数学环境中.
+  \section{数学结构}
+    \subsection{上标与下标}
+      上标下标可以嵌套
+
+        $A_i^k = B^k_i$\qquad
+        $K_{n_i} = K_{2^i} = K^{n_i} = 2^{2^i}$\qquad
+        $3^{3^{\cdot^{\cdot^{\cdot^3}}}}$
+        $F_{(x)}' = f_{(x)}$
+        $ A = 90^\circ$
+
+      显示公式中,多数数学算子的上下标在上方或者下方
+
+        \[
+          \max_n f(n) = \sum_{i=0}^n A_i
+        \]
+
+      但是行内公式会放在角标位置$\max_n f(n) = \sum_{i=0}^n A_i$
+
+      积分号仍然会在角标位置
+        % 导言区 \DeclareMathOperator\dif{d\!}
+        \[ \int_0^1 f(t) \dif t + \iint_D g(x,y) \dif x \dif y\]
+\end{document}
