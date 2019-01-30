@@ -1,6 +1,6 @@
 \documentclass[UTF8]{ctexart}
 
-\titte{杂谈勾股定理}
+\title{杂谈勾股定理}
 \author{张三}
 \date{\today}
 \bibliographystyle{plain} % 声明参考文献格式
@@ -8,6 +8,12 @@
 % 插图功能的相关宏包
 \documentclass{ctexart}
 \usepackage{graphicx}
+
+% 引用公式同时产生括号
+\usepackage{amsmath}
+
+% 在表格很小不影响分页,用这个包
+\usepackage{float}
 % 以上为导言区
 \begin{document}
 
@@ -17,12 +23,14 @@
   \end{abstract}
   \tableofcontents % 命令输出目录
   \section{勾股定理在古代}
-    勾股定理（英语Pythagorean theorem)又称商高定理(公元前 12 世纪)、毕达哥拉斯定理、毕氏定理、百牛定理，是平面几何中一个基本而重要的定 理。% 汉字左右的空格会被忽略
+    勾股定理（英语Pythagorean theorem)又称商高定理(公元前 12 世纪)、毕达哥拉斯定理、毕氏定理、百牛定理，是平面几何中一个基本而重要的定 理。\cite{Kline}
+    % 汉字左右的空格会被忽略
 
     % 使用空行分段,空行只有分段作用,段前不用打空格
     勾股定理说明，平面上的直角三角形的两条直角边的长度（古称勾长、股长）的平方和等于斜边长（古称弦长）的平方。反之，若平面上三角形中两边长的平方和等于第三边边长的平方，则它是
     % 换行相当于空格,只是分隔作用
-    直角三角形（直角所对的边是第三边）。
+    直角三角形（直角所对的边是第三边）。\cite{quanjing}
+    % cite命令的参数是引用标签,也就是bib文件第一个出现的东西
 
     \begin{thm}[勾股定理]
       直角三角形斜边的平方等于两腰的平方和
@@ -48,17 +56,26 @@
     \subsection{列表公式}
       对于较长的公式或者比较重要的公式,单独给公式编号
 
-      \begin{equation}
+      \begin{equation}\label{eq:gougu}
         \angle ACB = \pi /2
+
+        AB^2 = BC^2 + AC^2
       \end{equation}
+
+      勾股定理 \ref{eq:gougu} % 对公式的引用
+
+      满足\eqref{eq:gougu}的整数称为\emph{勾股数}
+
+      这样引用能可以产生括号,不过要加入宏包amsmath
     \subsection{上标下标}
 
       $2^{10} = 1024$
 
       $90^\circ$
   \section{使用图表}
+
       \subsection{插图}
-      
+
         % figure 环境,就是插图使用的浮动体环境,相当于普通段落,没有缩进
         \begin{figure}[ht]% 可选参数ht表示可以出现在文字所在处(here)或顶部
           \centering% 后面内容居中
@@ -66,13 +83,29 @@
           % \includegraphics有两个参数,方括号中的可选参数设定了宽度
           % 可选参数有[scale=放缩因子][height=高度][width=宽度]
           % 第二个参数是文件名,放在源文件目录
-          \caption{欧几里得证法}% 给插图加上编号和标题
-          \labal{fig:Euclid}
+          \caption{青朱出入图}% 给插图加上编号和标题
+          \labal{fig:qzcrt}
         \end{figure}
-      青朱出入图，是东汉末年数学家刘徽根据“割补术”运用数形关系证明勾股定理的几何证明法，特色鲜明、通俗易懂。
+      青朱出入图\ref{fig:qzcrt}，
+      % 对图片标签的引用
+      是东汉末年数学家刘徽根据“割补术”运用数形关系证明勾股定理的几何证明法，特色鲜明、通俗易懂。
       刘徽描述此图，“勾自乘为朱方，股自乘为青方，令出入相补，各从其类，因就其余不动也，合成弦方之幂。开方除之，即弦也。”其大意为，一个任意直角三角形，以勾宽作红色正方形即朱方，以股长作青色正方形即青方。将朱方、青方两个正方形对齐底边排列，再以盈补虚，分割线内不动，线外则“各从其类”，以合成弦的正方形即弦方，弦方开方即为弦长。 [3]
-
-      欧几里得证法
+    \section{插入表格}
+      下表列出了几个勾股数:
+      \begin{table}[H]% 正文与表格连在一起就放在这里,不浮动,需要float包
+        \begin{tabular}{|rrr|}%|rrr|表示有三列,都是右对齐
+          \hline% 产生一条横线
+          直角边$a$ & 直角边$b$ & 斜边$c$ \\% 项与项用\\隔开
+          \hline
+          3& 4& 5\\% 行与行用\\隔开
+          5& 12& 13\\
+          \hline
+        \end{tabular}%
+        % 上面的注释可以取消换行
+        \qquad% 产生2em(约两个M宽)空白
+        ($a^2 + b^2 = c^2$)
+      \end{table}
+  \nocite{Shiye}% 只在参考文献中显示,不直接引用
   \bibliography{math} % 提示从math数据库获取文献信息,来打印参考文献
 
 
