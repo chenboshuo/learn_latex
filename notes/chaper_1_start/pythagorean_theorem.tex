@@ -1,7 +1,7 @@
 \documentclass[UTF8]{ctexart}
 
-\title{杂谈勾股定理}
-\author{张三}
+\title{\heiti 杂谈勾股定理}
+\author{\kaishu张三}
 \date{\today}
 \bibliographystyle{plain} % 声明参考文献格式
 
@@ -14,7 +14,34 @@
 
 % 在表格很小不影响分页,用这个包
 \usepackage{float}
+
+% 设计文章格式
+\usepackage{geometry} % 设计页面尺寸
+\geometry{a6paper, centering, scale=0.8}
+% A6纸,版心居中,长宽占页面的0.8
+
+% 设置图表标题格式
+\usepackage[formant=hang, font=small, textfont=it]{caption}
+% 设置标题悬挂对齐(编号向左突出),整体使用小字号,标题使用斜体(对汉字来说是楷体)
+
+% 增加目录中的项目用tocbibind
+\usepackage[nottoc]{tocbibind}
+% 宏会默认增加目录本身,参考文献,索引等项目.noctoc取消了目录中显示目录
+
+% 定义新的环境,控制引用格式
+\newenvironment{myquote}
+  {\begin{quote}
+  \kaishu
+  \zihao{-5}
+  }
+  {\end{quote}}
+
+% 定义新命令打印角度符号
+\newcommand\degree{^\circ}
+
 % 以上为导言区
+
+
 \begin{document}
 
   \maketitle % 排版题目信息
@@ -90,21 +117,46 @@
       % 对图片标签的引用
       是东汉末年数学家刘徽根据“割补术”运用数形关系证明勾股定理的几何证明法，特色鲜明、通俗易懂。
       刘徽描述此图，“勾自乘为朱方，股自乘为青方，令出入相补，各从其类，因就其余不动也，合成弦方之幂。开方除之，即弦也。”其大意为，一个任意直角三角形，以勾宽作红色正方形即朱方，以股长作青色正方形即青方。将朱方、青方两个正方形对齐底边排列，再以盈补虚，分割线内不动，线外则“各从其类”，以合成弦的正方形即弦方，弦方开方即为弦长。 [3]
-    \section{插入表格}
-      下表列出了几个勾股数:
-      \begin{table}[H]% 正文与表格连在一起就放在这里,不浮动,需要float包
-        \begin{tabular}{|rrr|}%|rrr|表示有三列,都是右对齐
-          \hline% 产生一条横线
-          直角边$a$ & 直角边$b$ & 斜边$c$ \\% 项与项用\\隔开
-          \hline
-          3& 4& 5\\% 行与行用\\隔开
-          5& 12& 13\\
-          \hline
-        \end{tabular}%
-        % 上面的注释可以取消换行
-        \qquad% 产生2em(约两个M宽)空白
-        ($a^2 + b^2 = c^2$)
-      \end{table}
+  \section{插入表格}
+    下表列出了几个勾股数:
+    \begin{table}[H]% 正文与表格连在一起就放在这里,不浮动,需要float包
+      \begin{tabular}{|rrr|}%|rrr|表示有三列,都是右对齐
+        \hline% 产生一条横线
+        直角边$a$ & 直角边$b$ & 斜边$c$ \\% 项与项用\\隔开
+        \hline
+        3& 4& 5\\% 行与行用\\隔开
+        5& 12& 13\\
+        \hline
+      \end{tabular}%
+      % 上面的注释可以取消换行
+      \qquad% 产生2em(约两个M宽)空白
+      ($a^2 + b^2 = c^2$)
+    \end{table}
+
+  \section{新引用格式}
+    普通
+
+    勾股定理（英语Pythagorean theorem)又称商高定理(公元前 12 世纪)、毕达哥拉斯定理、毕氏定理、百牛定理，是平面几何中一个基本而重要的定 理。
+    \begin{myquote}
+      自定义
+
+      勾股定理（英语Pythagorean theorem)又称商高定理(公元前 12 世纪)、毕达哥拉斯定理、毕氏定理、百牛定理，是平面几何中一个基本而重要的定 理。
+    \end{myquote}
+
+
+    \begin{quote}
+      quote
+
+      勾股定理（英语Pythagorean theorem)又称商高定理(公元前 12 世纪)、毕达哥拉斯定理、毕氏定理、百牛定理，是平面几何中一个基本而重要的定 理。
+    \end{quote}
+
+  \section{新命令}
+    $90\degree$
+    输入角度很不直观,可以提前新建命令
+    % 导言区加入
+    % \newcommand\degree{^\circ}
+
+
   \nocite{Shiye}% 只在参考文献中显示,不直接引用
   \bibliography{math} % 提示从math数据库获取文献信息,来打印参考文献
 
