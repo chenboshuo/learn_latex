@@ -1,0 +1,88 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{minted}
+
+% 编译命令 $ pdflatex  -shell-escape -interation=nonstopmode minted.tex
+\begin{document}
+\section{c++}
+% 注意c小写
+\begin{minted}{c++}
+int main() {
+    printf("hello, world");
+    // comment 中文 $\pi x^2$
+    int a[3];
+    for (int i = 0; i < count; i++) {
+      /* code */
+    }
+    return 0;
+
+}
+\end{minted}
+
+\section{matlab}
+\begin{minted}{matlab}
+
+  A = [3 5 -7;2 -12 3; -1 9 8];
+  b = [34; -56;27];
+  x1 = A\b % 求解析解
+  x2 = linsolve(A,b) % 求数值解
+\end{minted}
+
+
+
+
+\section{python}
+
+\begin{minted}{python}
+  import csv
+
+from matplotlib import pyplot as plt
+
+from datetime import datetime
+'''
+strptime()接受实参解读信息
+%A 星期名称，Monday
+%B 月份名称，January
+%m 用数字表示月份，01
+%d 用数字表示月份中的一天，01
+%Y 四位数的年份，2018
+%y 两位数的年份，18
+%H 24小时小时数，00~23
+%I 12小时小时数，01~12
+%p am/pm
+%M 分钟数，00~59
+%S 秒数，00~61
+'''
+
+# 从文件中获取最高温
+filename = 'death_valley_2014.csv'
+with open(filename) as f:
+    reader = csv.reader(f) # 将前面的文件作为实参传递
+    header_row = next(reader) # 返回文件的下一行
+
+    dates,highs,lows = [], [], []
+    for row in reader:
+        try:
+            current_date = datetime.strptime(row[0],'%Y-%m-%d')
+            high = int(row[1])
+            low = int(row[3])
+        except ValueError:
+            print(current_date,'missing data')
+        else:
+            dates.append(current_date)
+            highs.append(high)
+            lows.append(low)
+
+
+# 根据数据绘制图形
+fig = plt.figure(dpi=128, figsize=(10,6))
+plt.plot(dates,highs, c='red')
+plt.plot(dates,lows, c='blue')
+plt.fill_between(dates,highs,lows,facecolor='blue', alpha=0.1)# alpha表示透明度，0完全透明，1完全不透明
+
+# 设置图像格式
+plt.title('Daily high and low temperatures,2014, fontsize=24')
+plt.xlabel('',fontsize=16)
+fig.autofmt_xdate() # 调用该函数绘制倾斜的日期
+plt.ylabel('Temperature(f)', fontsize=16)
+\end{minted}
+\end{document}
