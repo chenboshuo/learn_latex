@@ -1,10 +1,17 @@
 \documentclass[UTF8]{ctexart}
 
+
 \title{第四章数学公式}
 \date{\today}
 
 % 数学公式的相关宏包
 \usepackage{amsmath}
+
+% 显示代码和结果
+\usepackage{codeshow}
+
+% 化学元素的多角标
+\usepackage{mathtools}
 
 \DeclareMathOperator\dif{d\!}
 
@@ -54,5 +61,40 @@
 
       积分号仍然会在角标位置
         % 导言区 \DeclareMathOperator\dif{d\!}
-        \[ \int_0^1 f(t) \dif t + \iint_D g(x,y) \dif x \dif y\]
+        \begin{codeshow}
+          \[ \int_0^1 f(t) \dif t + \iint_D g(x,y) \dif x \dif y\]
+        \end{codeshow}
+
+        积分通常采用上下限(limits)的排版方式(使用),使用(limits)可以使上下标在正上方或正下方,使用(nolimits)会使角标在角上
+        \begin{codeshow}
+          \[
+            \iiint\limits_D \mathrm{d}f
+             = \max \nolimits_D g
+          \]
+        \end{codeshow}
+
+
+        化学元素
+        \begin{codeshow}
+          % \usepackage{mathtools}
+          $\prescript{2}{1}{H}$
+        \end{codeshow}
+
+        对于巨算符号,可以使用sideset
+        \begin{codeshow}
+          \[ \sideset{_a^b}{_c^d}
+          \sum_{i=0}^n A_i
+          = \sideset{}{'}
+          \prod_k f_i \]
+        \end{codeshow}
+
+        化学宏包(mhchem)可以用(\\ce)输入化学式,这里省略
+
+        \subsubsection{上下划线与花括号}
+        \begin{codeshow}
+          $\overline{a+b} =
+          \overline a + \overline b$ \\
+          $ underline a = (a_0,a_1,a_2, \dots) $
+        \end{codeshow}
+
 \end{document}
