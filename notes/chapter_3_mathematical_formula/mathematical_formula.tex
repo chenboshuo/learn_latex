@@ -16,85 +16,105 @@
 \DeclareMathOperator\dif{d\!}
 
 \begin{document}
-  \maketitle
-  \section{数学公式概说}
-    普通文字: a+b,1+1
+\maketitle
+\section{数学公式概说}
+普通文字: a+b,1+1
 
-    行内公式: $a+b$ , $1+1$
+行内公式: $a+b$ , $1+1$
 
-    直接写:交换律是
+直接写:交换律是
 
-    \[ a+b = b+a, \]
-    如
-    \[
-      1+2=2+1=3
-    \]
+\[ a+b = b+a, \]
+如
+\[
+1+2=2+1=3
+\]
 
-    自动编号的数学公式
-    \begin{equation}
-      a+b = b+a\label{eq:communtative}
-    \end{equation}
+自动编号的数学公式
+\begin{equation}
+a+b = b+a\label{eq:communtative}
+\end{equation}
 
-    \subsection{宏amsmath}
-      可以用输入汉字公式
+\subsection{宏amsmath}
+可以用输入汉字公式
 
-      $\text{被减数} - \text{减数} = \text{差}$
+$\text{被减数} - \text{减数} = \text{差}$
 
-      在普通文本中使用数学公式注意文本与数学公式的转换,比如行内公式标点处不能换行,列举多项公式应该分别放在数学环境中.
-  \section{数学结构}
-    \subsection{上标与下标}
-      上标下标可以嵌套
+在普通文本中使用数学公式注意文本与数学公式的转换,比如行内公式标点处不能换行,列举多项公式应该分别放在数学环境中.
+\section{数学结构}
+\subsection{上标与下标}
+上标下标可以嵌套
 
-        $A_i^k = B^k_i$\qquad
-        $K_{n_i} = K_{2^i} = K^{n_i} = 2^{2^i}$\qquad
-        $3^{3^{\cdot^{\cdot^{\cdot^3}}}}$
-        $F_{(x)}' = f_{(x)}$
-        $ A = 90^\circ$
+$A_i^k = B^k_i$\qquad
+$K_{n_i} = K_{2^i} = K^{n_i} = 2^{2^i}$\qquad
+$3^{3^{\cdot^{\cdot^{\cdot^3}}}}$
+$F_{(x)}' = f_{(x)}$
+$ A = 90^\circ$
 
-      显示公式中,多数数学算子的上下标在上方或者下方
+显示公式中,多数数学算子的上下标在上方或者下方
 
-        \[
-          \max_n f(n) = \sum_{i=0}^n A_i
-        \]
+\[
+  \max_n f(n) = \sum_{i=0}^n A_i
+\]
 
-      但是行内公式会放在角标位置$\max_n f(n) = \sum_{i=0}^n A_i$
+但是行内公式会放在角标位置$\max_n f(n) = \sum_{i=0}^n A_i$
 
-      积分号仍然会在角标位置
-        % 导言区 \DeclareMathOperator\dif{d\!}
-        \begin{codeshow}
-          \[ \int_0^1 f(t) \dif t + \iint_D g(x,y) \dif x \dif y\]
-        \end{codeshow}
+积分号仍然会在角标位置
+% 导言区 \DeclareMathOperator\dif{d\!}
+\begin{codeshow}
+  \[ \int_0^1 f(t) \dif t + \iint_D g(x,y) \dif x \dif y\]
+\end{codeshow}
 
-        积分通常采用上下限(limits)的排版方式(使用),使用(limits)可以使上下标在正上方或正下方,使用(nolimits)会使角标在角上
-        \begin{codeshow}
-          \[
-            \iiint\limits_D \mathrm{d}f
-             = \max \nolimits_D g
-          \]
-        \end{codeshow}
+积分通常采用上下限(limits)的排版方式(使用),使用(limits)可以使上下标在正上方或正下方,使用(nolimits)会使角标在角上
+\begin{codeshow}
+  \[
+    \iiint\limits_D \mathrm{d}f
+     = \max \nolimits_D g
+  \]
+\end{codeshow}
 
 
-        化学元素
-        \begin{codeshow}
-          % \usepackage{mathtools}
-          $\prescript{2}{1}{H}$
-        \end{codeshow}
+化学元素
+\begin{codeshow}
+  % \usepackage{mathtools}
+  $\prescript{2}{1}{H}$
+\end{codeshow}
 
-        对于巨算符号,可以使用sideset
-        \begin{codeshow}
-          \[ \sideset{_a^b}{_c^d}
-          \sum_{i=0}^n A_i
-          = \sideset{}{'}
-          \prod_k f_i \]
-        \end{codeshow}
+对于巨算符号,可以使用sideset
+\begin{codeshow}
+  \[ \sideset{_a^b}{_c^d}
+  \sum_{i=0}^n A_i
+  = \sideset{}{'}
+  \prod_k f_i \]
+\end{codeshow}
 
-        化学宏包(mhchem)可以用(\\ce)输入化学式,这里省略
+化学宏包(mhchem)可以用(\\ce)输入化学式,这里省略
 
-        \subsubsection{上下划线与花括号}
-        \begin{codeshow}
-          $\overline{a+b} =
-          \overline a + \overline b$ \\
-          $ underline a = (a_0,a_1,a_2, \dots) $
-        \end{codeshow}
+\subsubsection{上下划线与花括号}
+\begin{codeshow}
+  $\overline{a+b} =
+  \overline a + \overline b$ \\
+  $ \underline a = (a_0,a_1,a_2, \dots) $
+\end{codeshow}
+
+amsmath 提供了在公式上加箭头的指令
+\begin{codeshow}
+  $\overleftarrow{a+b}$\\
+  $\overrightarrow{a+b}$\\
+  $\overleftrightarrow{a+b}$\\
+  $\underleftarrow{a+b}$\\
+\end{codeshow}
+
+数学字母的重音标记和宽标记用法类似,只不过通常较短,不能任意伸长,
+但对于单个字母更准确
+\begin{codeshow}
+  $\vec x = \overrightarrow{a+b}$
+\end{codeshow}
+
+花括号可以用\\overbrace和\\underbrace
+\begin{codeshow}
+  $\overbrace{a+b+c}^{\text{共3项}} =
+   \underbrace{1+2+3+4}_{n}$
+\end{codeshow}
 
 \end{document}
