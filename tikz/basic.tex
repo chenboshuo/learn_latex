@@ -1,0 +1,32 @@
+\documentclass[UTF8]{ctexart} % 文档类型中文tex
+
+% 显示代码和结果
+\usepackage{codeshow}
+
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% 文档信息
+\title{tikz 画图}
+\date{\today}
+
+\begin{document}
+  \maketitle
+
+  \section{简单图形}
+  \subsection{直线}
+
+  \begin{codeshow}
+  \begin{tikzpicture}
+    \draw (1,0) -- (0,0) -- (0,1);
+  \end{tikzpicture}
+  \end{codeshow}
+
+  \begin{codeshow}
+  \begin{tikzpicture}
+    \draw (-1.5,0) -- (1.5,0);
+    \draw (0,-1.5) -- (0,1.5);
+  \end{tikzpicture}
+  \end{codeshow}
+\end{document}
